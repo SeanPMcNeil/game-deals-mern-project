@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className='mb-8'>
+      <div className='mb-8 mt-4'>
         <h1 className='text-5xl font-bold underline font-mono cursor-pointer' onClick={ () => navigate("/") }>
           Game Deals
         </h1>
@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={ <Home /> } />
         <Route path='/search/:game' element={ <Search /> } />
-        <Route path='/game/:id' element={ <Game /> } />
+        <Route path='/game/:game' element={ <Game /> } />
       </Routes>
     </div>
   );
