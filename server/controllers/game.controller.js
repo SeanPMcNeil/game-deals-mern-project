@@ -7,7 +7,7 @@ module.exports.createGame = (req, res) => {
 }
 
 module.exports.allGames = (req, res) => {
-    Game.find().sort({ "createdAt": "desc" }).limit(10)
+    Game.find().sort({ "createdAt": "desc" }).limit(25)
         .then(allGames => res.json(allGames))
         .catch(err => res.json({ message: "Error finding all games!", error: err }))
 }
