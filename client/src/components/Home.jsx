@@ -40,7 +40,7 @@ export const Home = props => {
             <div className="flex flex-wrap justify-around mt-8">
                 {
                     searches ? searches.map((game, i) => <div key={ i } className="cursor-pointer transition ease-in-out delay-150 hover:scale-110 duration-300 m-3 rounded-lg shadow-lg max-w-sm max-h-min" onClick={ () => onClickHandler(game.name) }>
-                        <img src={ game.image } className="object-scale-down h-48 m-auto" />
+                        <img src={ game.image } className="object-scale-down h-48 m-auto" alt={game.name} />
                         <p>{ game.name }</p>
                     </div>) : ""
                 }

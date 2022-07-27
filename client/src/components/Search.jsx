@@ -31,7 +31,7 @@ export const Search = props => {
             <div className="flex flex-wrap justify-around">
                 {
                     query ? query.map((obj, i) => <div key={ i } className="cursor-pointer transition ease-in-out delay-150 hover:scale-110 duration-300 m-3 rounded-lg shadow-lg max-w-sm max-h-min" onClick={ () => onClickHandler(obj.name, obj.background_image) }>
-                        <img src={ obj.background_image } alt="" className="object-scale-down h-48 m-auto" />
+                        <img src={ obj.background_image } alt={obj.name} className="object-scale-down h-48 m-auto" />
                         <p>{ obj.name }</p>
                     </div>) : <div role="status">
                         <svg className="inline mr-2 w-28 h-fit text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -25,7 +25,7 @@ export const Game = props => {
             {
                 query ? <div>
                     <p className="text-2xl mb-2">{ query.info.title }</p>
-                    <img src={ query.info.thumb } alt="" className="m-auto max-h-96"/>
+                    <img src={ query.info.thumb } alt={ query.info.title } className="m-auto max-h-96"/>
                     <p className="text-xl mt-2">Historical Lowest Price: { query.cheapestPriceEver.price }</p>
                     <table className="w-9/12 m-auto mt-3 table-auto">
                         <thead className="bg-white border-b">
