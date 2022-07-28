@@ -25,7 +25,7 @@ export const Game = props => {
     }
 
     return(
-        <div>
+        <div className="mb-8">
             {
                 query ? <div>
                     <p className="text-3xl mb-2">{ query.info.title }</p>

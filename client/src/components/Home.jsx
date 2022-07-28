@@ -27,7 +27,7 @@ export const Home = props => {
     }
 
     return(
-        <div>
+        <div className="mb-8">
             <form onSubmit={ onSubmitHandler }>
                 <div className="form-group mb-6">
                     <input type="text" name="search" className="form-control block w-6/12 m-auto px-3 py-1.5 text-base font-normal bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" onChange={ onChangeHandler } />
@@ -37,7 +37,7 @@ export const Home = props => {
                 </div>
             </form>
             <p className="font-mono text-xl mt-8">Recent Searches:</p>
-            <div className="flex flex-wrap justify-around mt-8">
+            <div className="flex flex-wrap justify-between mt-8">
                 {
                     searches ? searches.map((game, i) => <div key={ i } className="relative cursor-pointer transition ease-in-out delay-50 hover:scale-110 duration-200 m-3 max-w-sm max-h-min" onClick={ () => onClickHandler(game.name) }>
                         <img src={ game.image } className="object-scale-down h-48 m-auto" alt={game.name} />

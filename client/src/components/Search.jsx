@@ -25,7 +25,7 @@ export const Search = props => {
     }
 
     return(
-        <div>
+        <div className="mb-8">
             <p className="text-xl mb-6">Search for { game }:</p>
             <p>{ process.env.RAWG_KEY }</p>
             <div className="flex flex-wrap justify-around">
