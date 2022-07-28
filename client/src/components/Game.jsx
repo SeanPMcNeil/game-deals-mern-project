@@ -28,16 +28,16 @@ export const Game = props => {
         <div>
             {
                 query ? <div>
-                    <p className="text-2xl mb-2">{ query.info.title }</p>
+                    <p className="text-3xl mb-2">{ query.info.title }</p>
                     <img src={ query.info.thumb } alt={ query.info.title } className="m-auto max-h-96"/>
-                    <p className="text-xl mt-2">Historical Lowest Price: { query.cheapestPriceEver.price }</p>
+                    <p className="text-3xl mt-2">Historical Lowest Price: <span className="text-emerald-400">{ query.cheapestPriceEver.price }</span></p>
                     <table className="w-9/12 m-auto mt-3 table-auto">
                         <thead className="bg-slate-700 border-b border-collapse border-slate-500">
                             <tr>
-                                <th scope="col" className="text-sm font-medium text-white-900 px-6 py-4 text-center">Store:</th>
-                                <th scope="col" className="text-sm font-medium text-white-900 px-6 py-4 text-center">Current Price:</th>
-                                <th scope="col" className="text-sm font-medium text-white-900 px-6 py-4 text-center">Retail Price:</th>
-                                <th scope="col" className="text-sm font-medium text-white-900 px-6 py-4 text-center">Current Savings:</th>
+                                <th scope="col" className="text-sm font-medium text-white-900 px-4 py-4 text-center">Store:</th>
+                                <th scope="col" className="text-sm font-medium text-white-900 px-4 py-4 text-center">Current Price:</th>
+                                <th scope="col" className="text-sm font-medium text-white-900 px-4 py-4 text-center">Retail Price:</th>
+                                <th scope="col" className="text-sm font-medium text-white-900 px-4 py-4 text-center">Current Savings:</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,12 +45,12 @@ export const Game = props => {
                                 query.deals.map((deal, i) => <tr key={ i } className="cursor-pointer bg-slate-600 border-b border-collapse border-slate-500 transition duration-300 ease-in-out hover:bg-slate-800" onClick={ () => onClickHandler(deal.dealID) }>
                                     {
                                         stores.filter(store => store.storeID === deal.storeID).map((filteredStore, k) => (
-                                            <td key={ k } className="text-sm text-white-900 font-light px-6 py-4 whitespace-nowrap">{ filteredStore.storeName }</td>
+                                            <td key={ k } className="text-sm text-white-900 font-light px-4 py-4 whitespace-nowrap">{ filteredStore.storeName }</td>
                                         ))
                                     }
-                                    <td className="text-sm text-white-900 font-light px-6 py-4 whitespace-nowrap">{ deal.price }</td>
-                                    <td className="text-sm text-white-900 font-light px-6 py-4 whitespace-nowrap">{ deal.retailPrice }</td>
-                                    <td className="text-sm text-white-900 font-light px-6 py-4 whitespace-nowrap">{ Math.trunc(deal.savings) }% </td>
+                                    <td className="text-sm text-white-900 font-light px-4 py-4 whitespace-nowrap">{ deal.price }</td>
+                                    <td className="text-sm text-white-900 font-light px-4 py-4 whitespace-nowrap">{ deal.retailPrice }</td>
+                                    <td className="text-sm text-white-900 font-light px-4 py-4 whitespace-nowrap">{ Math.trunc(deal.savings) }% </td>
                                 </tr>)
                             }
                         </tbody>

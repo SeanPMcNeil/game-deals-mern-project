@@ -8,7 +8,7 @@ export const Home = props => {
     const [searches, setSearches] = useState(null);
     
     const onChangeHandler = e => {
-        setGame(e.target.value)
+        setGame(e.target.value);
     }
 
     useEffect(() => {
@@ -39,9 +39,9 @@ export const Home = props => {
             <p className="font-mono text-xl mt-8">Recent Searches:</p>
             <div className="flex flex-wrap justify-around mt-8">
                 {
-                    searches ? searches.map((game, i) => <div key={ i } className="cursor-pointer transition ease-in-out delay-150 hover:scale-110 duration-300 m-3 rounded-lg shadow-lg max-w-sm max-h-min" onClick={ () => onClickHandler(game.name) }>
+                    searches ? searches.map((game, i) => <div key={ i } className="relative cursor-pointer transition ease-in-out delay-50 hover:scale-110 duration-200 m-3 max-w-sm max-h-min" onClick={ () => onClickHandler(game.name) }>
                         <img src={ game.image } className="object-scale-down h-48 m-auto" alt={game.name} />
-                        <p>{ game.name }</p>
+                        <p className="absolute text-2xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-800 bg-opacity-70">{ game.name }</p>
                     </div>) : ""
                 }
             </div>
