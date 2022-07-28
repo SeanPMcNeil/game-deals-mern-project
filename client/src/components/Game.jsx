@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 export const Game = props => {
     const { game } = useParams();
     const [query, setQuery] = useState(null);
+    const [stores, setStores] = useState(null)
 
     useEffect(() => {
         axios.get("https://www.cheapshark.com/api/1.0/games?title=" + game + "&limit=1")
@@ -13,6 +14,9 @@ export const Game = props => {
                     .then(res => setQuery(res.data))
                     .catch(err => console.log(err))
             })
+            .catch(err => console.log(err))
+        axios.get("https://www.cheapshark.com/api/1.0/stores")
+            .then(res => setStores(res.data))
             .catch(err => console.log(err))
     }, [game])
 
@@ -28,19 +32,25 @@ export const Game = props => {
                     <img src={ query.info.thumb } alt={ query.info.title } className="m-auto max-h-96"/>
                     <p className="text-xl mt-2">Historical Lowest Price: { query.cheapestPriceEver.price }</p>
                     <table className="w-9/12 m-auto mt-3 table-auto">
-                        <thead className="bg-white border-b">
+                        <thead className="bg-slate-700 border-b border-collapse border-slate-500">
                             <tr>
-                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">Current Price:</th>
-                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">Retail Price:</th>
-                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">Current Savings:</th>
+                                <th scope="col" className="text-sm font-medium text-white-900 px-6 py-4 text-center">Store:</th>
+                                <th scope="col" className="text-sm font-medium text-white-900 px-6 py-4 text-center">Current Price:</th>
+                                <th scope="col" className="text-sm font-medium text-white-900 px-6 py-4 text-center">Retail Price:</th>
+                                <th scope="col" className="text-sm font-medium text-white-900 px-6 py-4 text-center">Current Savings:</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                query.deals.map((deal, i) => <tr key={ i } className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100" onClick={ () => onClickHandler(deal.dealID) }>
-                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{ deal.price }</td>
-                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{ deal.retailPrice }</td>
-                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{ Math.trunc(deal.savings) }% </td>
+                                query.deals.map((deal, i) => <tr key={ i } className="cursor-pointer bg-slate-600 border-b border-collapse border-slate-500 transition duration-300 ease-in-out hover:bg-slate-800" onClick={ () => onClickHandler(deal.dealID) }>
+                                    {
+                                        stores.filter(store => store.storeID === deal.storeID).map((filteredStore, k) => (
+                                            <td key={ k } className="text-sm text-white-900 font-light px-6 py-4 whitespace-nowrap">{ filteredStore.storeName }</td>
+                                        ))
+                                    }
+                                    <td className="text-sm text-white-900 font-light px-6 py-4 whitespace-nowrap">{ deal.price }</td>
+                                    <td className="text-sm text-white-900 font-light px-6 py-4 whitespace-nowrap">{ deal.retailPrice }</td>
+                                    <td className="text-sm text-white-900 font-light px-6 py-4 whitespace-nowrap">{ Math.trunc(deal.savings) }% </td>
                                 </tr>)
                             }
                         </tbody>
