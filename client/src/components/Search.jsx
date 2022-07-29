@@ -29,7 +29,7 @@ export const Search = props => {
         <div className="mb-8">
             <p className="text-xl mb-6">Search for { game }:</p>
             <p>{ process.env.RAWG_KEY }</p>
-            <div className="flex flex-wrap justify-around">
+            <div className="flex flex-wrap justify-around p-3">
                 {
                     query ? query.map((obj, i) => <div key={ i } className="relative cursor-pointer transition ease-in-out delay-50 hover:scale-110 duration-200 m-3 rounded-lg shadow-lg max-w-sm max-h-min" onClick={ () => onClickHandler(obj.name, obj.background_image) }>
                         <img src={ obj.background_image } alt={obj.name} className="object-scale-down h-48 m-auto" />
