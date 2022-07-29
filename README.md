@@ -23,3 +23,4 @@ The goal of Game Deals is to help users find the best current deals on PC games 
 - Potential monetization options through affiliate programs. Would need a way to dynamically build links based on where the deals are located.
 
 #### Game Deal Page
+<img width="2560" alt="single-game-min" src="https://user-images.githubusercontent.com/23509634/181808698-47a4bfca-798a-4969-ab3e-cccf3d197eee.png">
