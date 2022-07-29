@@ -21,7 +21,8 @@ export const Search = props => {
         })
             .then(res => console.log(res))
             .catch(err => console.log(err))
-        navigate(`/game/${name}`)
+        const reg = /\([^()]*\)/;
+        navigate(`/game/${name.replace(reg, '')}`)
     }
 
     return(
