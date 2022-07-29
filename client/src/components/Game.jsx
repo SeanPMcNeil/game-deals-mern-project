@@ -6,7 +6,6 @@ export const Game = props => {
     const { game } = useParams();
     const [query, setQuery] = useState(null);
     const [stores, setStores] = useState(null)
-    const [error, setError] = useState();
 
     useEffect(() => {
         axios.get("https://www.cheapshark.com/api/1.0/games?title=" + game + "&limit=1")
