@@ -38,7 +38,7 @@ export const Home = props => {
                 </div>
             </form>
             <p className="font-mono text-xl mt-8">Recent Searches:</p>
-            <div className="flex flex-wrap justify-between mt-8">
+            <div className="flex flex-wrap justify-between mt-8 p-3">
                 {
                     searches ? searches.map((game, i) => <div key={ i } className="relative cursor-pointer transition ease-in-out delay-50 hover:scale-110 duration-200 m-3 max-w-sm max-h-min" onClick={ () => onClickHandler(game.name) }>
                         <img src={ game.image } className="object-scale-down h-48 m-auto" alt={game.name} />
