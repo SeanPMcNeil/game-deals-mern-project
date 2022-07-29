@@ -23,7 +23,8 @@ export const Home = props => {
     }
 
     const onClickHandler = name => {
-        navigate(`/game/${name}`)
+        const reg = /\([^()]*\)/;
+        navigate(`/game/${name.replace(reg, '')}`)
     }
 
     return(
