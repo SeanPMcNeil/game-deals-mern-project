@@ -1,4 +1,5 @@
 # Game Deals
+## Try it out [Here](http://54.85.94.44/)
 ### A PC Game Deal Finder App
 ### Built using React, MongoDB, and Tailwind CSS
 
