@@ -20,7 +20,7 @@ The goal of Game Deals is to help users find the best current deals on PC games 
 - Utilized Tailwind CSS to create a dynamic, interactive page to provide feedback to users as they browse.
 
 #### Future Considerations
-- Research different API options to avoid naming conflicts between the two during game searches/
+- Research different API options to avoid naming conflicts between the two during game searches/deal lookups
 - Potential monetization options through affiliate programs. Would need a way to dynamically build links based on where the deals are located.
 
 #### Game Deal Page
